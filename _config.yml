@@ -1,1 +1,6 @@
+remote_theme: pages-themes/minimal@v0.2.0
+plugins:
+- jekyll-remote-theme
 
+title: [Mohamed Shedeed]
+description: [Welcome to my website! You can use the homepage to navigate the site and see my current projects.]
