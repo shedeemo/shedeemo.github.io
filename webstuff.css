@@ -168,6 +168,14 @@ ul li a:hover {
     padding: 5%;
 }
 
+.section h1 {
+    
+}
+
+.section h3 {
+    padding-bottom: 2%;
+}
+
 .pagehead {
     /* margin: auto; */
     max-width: 1200px;
@@ -268,8 +276,8 @@ ul li a:hover {
 
 .socials {
     display: flex;
-    padding-top: 10%;
     align-items: center;
+    justify-content: center;
     /* right: -40%; */
     column-gap: 40px;
 }
@@ -292,9 +300,25 @@ ul li a:hover {
     display: flex;
     background-color:black;
     min-height: 120px;
+    max-width: 1200px;
     align-items: center;
     justify-content: center;
     column-gap: 40px;
+    margin: auto;
+}
+
+.header {
+    background-color: black;
+    margin-bottom: 5%;
+}
+
+.header__content {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contact-info {
@@ -307,16 +331,32 @@ ul li a:hover {
     font-size: 30px;
 }
 
+.contact-info p {
+    padding-right: 5%;
+}
+
 .project {
     text-align: center;
 }
 
+.projlink:hover {
+    color: rgb(6, 5, 5, 0.5);
+    text-decoration: underline;
+}
+
+.projlink {
+    color: black;
+    text-decoration: none;
+}
+
 .projname {
     text-align: center;
+    color: rgb(8, 0, 0);
 }
 
 .projname h2 {
     padding-bottom: 2%;
+    color: black;
 }
 
 figcaption {
