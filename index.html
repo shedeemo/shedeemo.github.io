@@ -26,18 +26,16 @@
         </style>
     </head> 
     <body>
-        <div>
-            <nav>
-                <ul>
-                    <li><a href = '#aboutme'>About Me</a></li>
-                    <li><a href = '#projects'>Current Projects</a></li>
-                    <li><a href = '#teaching'>Teaching</a></li>
-                    <li><a href = './cv_page.html'>CV</a></li>
-                    <li><a href = '#rtutorials'>R Tutorials</a></li>
-                    <li><a href = '#contact'>Contact</a></li>
-                 </ul>
-            </nav>
-        </div>
+        <div id="header-placeholder"></div>
+        <script>
+          fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+              const headerPlaceholder = document.getElementById('header-placeholder');
+              headerPlaceholder.innerHTML = data;
+            });
+        </script>
+
         <div class = 'pagehead'>
             <div class="imageclass2">
                 <img class="image" src = 'headshot.jpeg', border = '10'>
@@ -63,7 +61,7 @@
             <h1>About me</h1>
             <div class = 'txt-cont'>
                 <p class = 'text'>Hello! My name is Mohamed and I'm a Political Science PhD candidate at The Ohio State University and Research Fellow with the Mershon Center for International Security. I am proudly from Jersey City, NJ (<em>home to the Statue of Liberty btw</em>) but moved to Ohio for graduate school. As an undergraduate, I attended Seton Hall University, where I received my degree in International Relations and Economics and worked as a research assistant for the Center for Peace and Conflict Studies. </p>
-                <img src = 'dana.jpg' class="image2">
+                <img src = 'dana.jpeg' class="image2">
             </div>
             <p class = 'bottom-text'>My substantive asks how demographic factors interact with corruption and clientelism to result in unequal experiences of climate change for citizens of different social groups. I do this by studying the impact of the distribution of Jordan's tribes on both the enforcement of water sector reforms and the reliability of water delivery. My research ties together previous work on corruption, goods provision, and clientelism to understand how social and political factors influence how different populations experience the effects of climate change. Methodologically, I am interested in strategies of causal inference and the application of machine learning methods to political science as a means of data collection. As part of my dissertation, I am currently working on a more efficient means of estimating demographic distributions when accurate data is not publically available or easily accessible.</p>
         </div>
@@ -94,6 +92,7 @@
                     <p>The R code used for recitation sessions can be found in the R Tutorials section.</p>
                 </div>
             </div>
+            <!-- <hr class="dashed"> -->
             <div class="course">
                 <div class="courseinfo">
                     <div class="coursename">
@@ -111,6 +110,7 @@
                     <p>This course was the first in a sequence of three courses designed for the methods sequence of the Political Science PhD program. It covers fundamentals of statistics and probability theory such as probability distributions, hypothesis testing, and basic linear regression.</p>
                 </div>
             </div>
+            <!-- <hr class="dashed"> -->
             <div class="course">
                 <div class="courseinfo">
                     <div class="coursename">
@@ -132,71 +132,15 @@
 
 
 
-
-
-
-
-
-        <div>
-            <footer class = 'footer' id = 'contact'>
-                <div class = 'contact-info'>
-                    <p>Contact Me:</p>
-                    <div class = 'socials'>
-                        <a href="mailto:shedeed.1@osu.edu">
-                            <img src = 'email-button.jpeg'>
-                        </a>
-                        <a href = 'https://twitter.com/mshedeed24' target = "_blank"><img src = 'twitter-logo.png'></a>
-                        <a href = 'https://www.linkedin.com/in/mohamed-shedeed-590b07131/' target = "_blank"><img src = 'linkedin-logo.png'></a>
-                        <a href = 'https://github.com/shedeemo'><img src = 'github-logo.jpeg' target = "_blank"></a>
-                    </div>
-                </div>
-            </footer>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-        <!-- <div class="container">
-        <header>
-            <div class="Mohamed Shedeed">
-                <h1>Mohamed Shedeed</h1>
-            </div>
-        </header>
-            <div class="main">
-                <h2>Welcome to my website! You can use the homepage to learn more about me and my current projects.</h2>
-            </div>
-            <div class="feature">
-                <h3>About me</h3>
-                <p class = 'intro'>Hello! My name is Mohamed and I'm a Political Science PhD candidate at The Ohio State University with specializations in Comparative Politics and Research Methodology. I am proudly from Jersey City, NJ (<em>home to the Statue of Liberty btw</em>) but moved to Ohio for graduate school. As an undergraduate, I attended Seton Hall University, where I received my degree in International Relations and Economics and worked as a research assistant for the Center for Peace and Conflict Studies. </p>
-                <p class = 'intro'>My substantive interests currently revolve and public goods provision and how demographic factors and corruption result in unequal experiences of climate change for citizens of different social groups. I do this by studying the impact of the distribution of Jordan's tribes on both the enforcement of water sector reforms and the reliability of water delivery. Methodologically, I am interested in strategies of causal inference and the application of machine learning methods to political science as a means of data collection. As part of my dissertation, I am currently working on a more efficient means of estimating demographic distributions when accurate data is not publically available.</p>            </div>
-            <section id = "section1">
-                <p>This is the section</p>
-            </section>
-            <div class="feature">
-                <h3>Learn More!</h3>
-                <style>
-                    button {
-                        background-color: rgb(120, 3, 3);
-                        color: whitesmoke;
-                        border-style: groove;
-                        height: 36px;
-                        border-radius: 5px;
-                        cursor: pointer;
-                    }
-                </style>
-                <button onclick = "current-projects.html"
-                 >Current Projects</button>
-                <p>lorem ipsum dolor amet lorem ipsum dolor ametlorem ipsum dolor ametlorem ipsum dolor ametlorem ipsum dolor ametlorem ipsum dolor ametlorem ipsum dolor ametlorem ipsum dolor.</p>
-            </div>
-        </div>
-        <div>this is a div</div> -->
+        <div id="footer-placeholder"></div>
+        <script>
+          fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+              const footerPlaceholder = document.getElementById('footer-placeholder');
+              footerPlaceholder.innerHTML = data;
+            });
+        </script>
     </body>
     </html>
 </html>

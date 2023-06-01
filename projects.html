@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <!-- every part of the webpage is contained in head or body below -->
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+        <script src = 'design.js'></script>
+        <meta charset="UTF-8">
+	    <title>Home - Mohamed Shedeed</title>
+	    <meta name="Welcome to my website!" content="width=device-width, initial-scale=1">
+        <meta http-equiv="mohamed shedeed" content="mohamed shedeed, phd, ohio state">
+        <meta name="keywords" content="research, cv, data science, academic">
+        <!-- this is everything not visible in the webpage -->
+        <title>Mohamed Shedeed</title>
+        <link rel = 'stylesheet' href = 'webstuff.css'> 
+        <style>
+            /* .thumbnail{
+                width: 300px;
+            }
+            .intro {
+                width: 500px;
+            } */
+        </style>
+    </head> 
+
+
+    <body>
+        <div id="header-placeholder"></div>
+        <script>
+          fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+              const headerPlaceholder = document.getElementById('header-placeholder');
+              headerPlaceholder.innerHTML = data;
+            });
+        </script>
+
+        <div class="section">
+            <div class="projname">
+                <h2>Tribal Dynamics, Wasta, and Resource Management in Jordan</h2>
+                <div class="txt-cont">
+                    <p>Jordan represents one of the most water-deficient countries in the world. 
+                        While we can attribute the country's dwindling water supply to factors such as climate change, 
+                        pollution, and population booms, the human factor of this process is largely ignored. This shapes a discourse focused around strategies of adaptation to inevitable developments of climate change and precludes any state responsibility for these disasters. While many of these factors, such as aridification, is undoubtedly a concern, we cannot ignore the role that state actors can play in worsening these crises. Rather than brainstorming adaptation strategies, a systematic investigation into the determinants of who distributes these resources and 
+                        to whom they distribute them in necessary in ensuring that the most vulnerable communities with the least political influence to not bear a disproportionate burden. As the climate crisis worsens, research on differential effects of deteriorating environemntal conditions due to social processes will become essential in improving govenrance strategies worldwide.</p>
+                        <img src="tribes-funds.png" alt="" class="image3">
+                </div>
+                <div class="bottom-text">
+                    <p>The first part of my dissertation examines the relationship between local demographic distirbutions, patronage, and resource management in Jordan. 
+                        I ask how the demographic composition of an electoral district influences its accessibility to critical resources such as water. 
+                        Additionally, the project investigates the role of tribal elites and the "shadow state" in the management of Jordan's resources, including 
+                        allocation and distribution systems alongside the implementation and enforcement of environmental reforms and regulations. This project engages with 
+                        political science literature studying the relationship between social group heterogeneity and public service delivery as well as previous work on patronage and corruption.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="projname">
+                <h2>Electoral Reforms and Identity-Based Voting</h2>
+                <div class="txt-cont">
+                    <div class="imagecap">
+                        <img src="jordanelection.jpg" alt="test" class="image3">
+                        <figcaption>Jordanians voting in the 2016 parliamentary elections</figcaption>
+                    </div>
+                    
+                    <p>Since elections were reintroduced to Jordan in the 1990s, there have been a series of electoral reforms governing 
+                        attributes of electoral districts themselves such as their size and geographic boundaries in addition to changes to the electoral process itself.
+                        One of the most significant changes was the switch to a single-non-transferrable vote (SNTV) sytem, or the so-called "one man one vote" system in which 
+                        voters in multimember districts could only select one candidate on their ballots. This reform was deeply unpopular with the Islamic Action Front (IAF), Jordan's main opposition party, 
+                        which boycotted several parliamentary elections in response to the new rules. In addition, it was criticized by various commentators as a system that would discourage the formation
+                        of political parties and allow tribal elites to capture these electoral districts through existing networks of patronage.
+                    </p>
+                </div>
+                <div class="bottom-text">
+                    The second part of my dissertation exploits the electoral reforms of 2003, which effectively split districts into two types. The first maintained an SNTV system while the second was comrpised of
+                    single-member districts. While this system failed to address the demands by activists and opposition figures to introduce a system based on proportional representation, there has been little written about whether
+                    this switch between SNTV and SMD designs affected the power of local elites. I examine the role this change had in altering existing power dynamics between tribes, with a focus on whether the reform allowed members of powerful tribes 
+                    to consolidate their power at the expense of smaller tribes. In doing so, I engage with literature on patronage, identity-based voting, and electoral design.
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+        <div id="footer-placeholder"></div>
+        <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+            const footerPlaceholder = document.getElementById('footer-placeholder');
+            footerPlaceholder.innerHTML = data;
+            });
+        </script>
+    </body>
+    </html>
+</html>

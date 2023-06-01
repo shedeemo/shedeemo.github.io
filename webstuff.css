@@ -15,6 +15,7 @@ body, html{
 	margin:0;
     height: 100vh; 
     position: relative;
+    background-color: #e8f0f7;
 } 
 
 .imageclass2 {
@@ -74,22 +75,80 @@ body, html{
 * {
     /* display: flexbox;
     flex: 1; */
-    margin: 24px;
-    padding: 1px;
-    margin-top: 5px;
+    margin: 0;
+    padding: 0;
+    margin-top: 0;
     font-family: prompt;
+    box-sizing: border-box;
 }
 
-div nav {
+/* Embedding CV */
+
+.cv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* NAV BAR STUFF */
+
+.header {
+    background-color: black;
+    margin-bottom: 5%;
+}
+
+.header__content {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav {
+
+}
+
+.nav__myname {
+    color: #e8f0f7;
+    font-size: 30px;
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 40px;
+}
+
+.nav__item {
+
+}
+
+.nav__link {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 22px;
+    transition: all 0.4s;
+}
+
+.nav__link:hover /
+.nav__link:focus{
+    color: rgba(255, 255, 255, 1);
+}
+
+
+/* div nav {
     text-align: center;
 }
 
 nav {
+    padding-top: 2%;
     width: 100%;
     height: 70px;
     background-color: #2980b9;
     z-index: 1;
-    border-radius: 20px;
+    margin-bottom: 5%;
 }
 
 nav ul {
@@ -99,10 +158,6 @@ nav ul {
     list-style: none;
     justify-content: space-around;
 }
-
-/* ul li:last-child {
-    margin-right: 0;
-} */
 
 ul li a {
     float: left;
@@ -117,7 +172,7 @@ ul li a {
 
 ul li a:hover {
     text-decoration-line: underline;
-}
+} */
 
 .section {
     font-size: 18px;
@@ -126,6 +181,7 @@ ul li a:hover {
     flex-direction: column;
     z-index: 1;
     position: relative;
+    padding: 5%;
 }
 
 .pagehead {
@@ -208,6 +264,12 @@ ul li a:hover {
     margin-left: 20px;
 }
 
+.image3 {
+    width: 500px;
+    border-radius: 2%;
+    margin-right: 2%;
+}
+
 .bottom-text {
     margin-top: 20px;
 }
@@ -216,17 +278,17 @@ ul li a:hover {
     align-items: center;
     margin-top: -4%;
     padding-top: -15%;
-    position: relative;
-    display: block;
-    gap: 10px;
+    display: flex;
+    align-items: center;
     padding-left: 50%;
     /* right: -40%; */
     z-index: 2;
+    column-gap: 40px;
 }
 
 .socials a {
     display: inline-block;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 50%;
 }
 
@@ -239,17 +301,51 @@ ul li a:hover {
 }
 
 .footer {
-    background-color: #2980b9;
-    padding: 10px;
+    display: flex;
+    background-color:black;
+    min-height: 120px;
+    align-items: center;
+    justify-content: center;
+    column-gap: 40px;
 }
 
 .contact-info {
     text-align: left;
     color: azure;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    font-size: 30px;
 }
 
 .project {
     text-align: center;
+}
+
+.projname {
+    text-align: center;
+}
+
+.projname h2 {
+    padding-bottom: 2%;
+}
+
+figcaption {
+    background-color: inherit;
+    color: inherit;
+    display: flex;
+    font-style: italic;
+    padding: 2px;
+    text-align: center;
+  }
+
+.imagecap {
+    display: flex;
+    flex-direction: column;
+    padding-right: 5px;
+    align-items: center;
+    padding-bottom: 2px;
 }
 
 .course {
@@ -257,7 +353,7 @@ ul li a:hover {
     position: relative;
     padding: 20px;
     /* flex: 1; */
-    background-color: rgb(241, 241, 228);
+    background-color: rgb(224, 233, 236);
 }
 
 .course::after {
@@ -280,7 +376,9 @@ ul li a:hover {
     text-align: left;
     font-weight: bold;
     display: inline-block;
-    width: 50%;
+    width: 95%;
+    margin-bottom: 3%;
+    padding: 50px;
 }
 
 .coursename::before {
@@ -316,7 +414,7 @@ ul li a:hover {
     font-weight: lighter;
     color: rgb(146, 143, 143);
     display: inline-block;
-    margin-left: 8%;
+    margin-left: 15%;
     margin-bottom: 3%;
 }
 
@@ -342,7 +440,7 @@ ul li a:hover {
     margin-bottom: 10px;
 }
 
-.separatorx {
+/* .separatorx {
     position: absolute;
     top: 6%;
     bottom: 1%;
@@ -350,32 +448,32 @@ ul li a:hover {
     background-color: #2980b9;
     left: 35%;
     transform: translateX(-50%);
-}
-
+} */
+/* 
 .separatory1 {
     position: absolute;
     top: 40%;
-    width: 60%;
+    width: 60%; */
     /* height: 1px; */
     /* bottom: 15%; */
-    background-color: #2980b9;
+    /* background-color: #2980b9;
     left: 39%;
-    right: 75%;
+    right: 75%; */
     /* right: 35%; */
-    transform: translateY(-50%);
-}
+    /* transform: translateY(-50%);
+} */
 
-.separatory2 {
+/* .separatory2 {
     position: absolute;
     display: flex;
     flex: 1;
     bottom: 31%;
-    width: 60%;
+    width: 60%; */
     /* height: 1px; */
     /* bottom: 15%; */
-    background-color: #2980b9;
-    left: 39%;
-    right: 75%;
+    /* background-color: #2980b9; */
+    /* left: 39%;
+    right: 75%; */
     /* right: 35%; */
-    transform: translateY(-50%);
-}
+    /* transform: translateY(-50%);
+} */
