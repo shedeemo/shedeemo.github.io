@@ -600,4 +600,5 @@ figcaption {
     align-items: center;
     margin-top: 10px;
     column-gap: 30%;
+    text-decoration: none;
 }
