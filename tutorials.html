@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <!-- every part of the webpage is contained in head or body below -->
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+        <script src = 'design.js'></script>
+        <meta charset="UTF-8">
+	    <title>R Tutorials</title>
+	    <meta name="Welcome to my website!" content="width=device-width, initial-scale=1">
+        <meta http-equiv="mohamed shedeed" content="mohamed shedeed, phd, ohio state">
+        <meta name="keywords" content="research, cv, data science, academic">
+        <!-- this is everything not visible in the webpage -->
+        <title>Mohamed Shedeed</title>
+        <link rel = 'stylesheet' href = 'webstuff.css'> 
+        <style>
+            /* .thumbnail{
+                width: 300px;
+            }
+            .intro {
+                width: 500px;
+            } */
+        </style>
+    </head>
+
+    <body>
+        <div id="header-placeholder"></div>
+        <script>
+          fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+              const headerPlaceholder = document.getElementById('header-placeholder');
+              headerPlaceholder.innerHTML = data;
+            });
+        </script>
+
+        <div class="tut__header">
+            <h1>R Tutorials</h1>
+            <div class="txt-cont">
+                <p>You can find some of my R Tutorials below. You can either view the full tutorial below as an HTML document or use the link provided to access the R code through my github repository.
+                You can also go straight to the tutorial repository using <a href="https://github.com/shedeemo/rtutorials">this link</a>.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="tutorial">
+                <div class="tut__title">
+                    <h2>Basic Data Exploration</h2>
+                </div>
+                <div class="tut__descr">
+                    <p>This tutorial covers basic data exploration in R, as well as essential features of the <code>tidy</code> environment.</p>
+                </div>
+                <div class="tut__links">
+                    <a href="exploration.html" target="_blank">Tutorial Webpage</a>
+                    <a href="https://github.com/shedeemo/rtutorials/blob/main/R%20Scripts/exploration.Rmd">Link to code</a> 
+                </div>
+            </div>
+        </div>
+
+
+
+    </body>
+
+
+
+
+
+    <div id="footer-placeholder"></div>
+    <script>
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+        const footerPlaceholder = document.getElementById('footer-placeholder');
+        footerPlaceholder.innerHTML = data;
+        });
+    </script>
+</body>
+</html>
+</html>

@@ -78,19 +78,23 @@ body, html{
 .header {
     background-color: black;
     margin-bottom: 5%;
+    justify-content: center;
+    align-items: center;
 }
 
 .header__content {
     display: flex; 
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     min-height: 120px;
-    max-width: 1200px;
+    width: 1200px;
     margin: 0 auto;
+    flex-direction: row;
+    column-gap: 200px;
 }
 
 .nav {
-
+    margin-right: 5%;
 }
 
 .nav__myname {
@@ -115,9 +119,23 @@ body, html{
     transition: all 0.4s;
 }
 
-.nav__link:hover /
-.nav__link:focus{
+.nav__link:hover {
     color: rgba(255, 255, 255, 1);
+}
+
+.nav__logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo__img {
+    width: 100px;
+}
+
+.image2 {
+    width: 400px;
+    margin-left: 20px;
 }
 
 
@@ -297,6 +315,14 @@ ul li a:hover {
 }
 
 .footer {
+    background-color: black;
+    margin-bottom: 5%;
+    justify-content: center;
+    align-items: center;
+    min-height: 120px;
+}
+
+.footer__content {
     display: flex;
     background-color:black;
     min-height: 120px;
@@ -304,7 +330,25 @@ ul li a:hover {
     align-items: center;
     justify-content: center;
     column-gap: 40px;
-    margin: auto;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: black;
+    margin-bottom: 5%;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__content {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    min-height: 120px;
+    width: 1200px;
+    margin: 0 auto;
+    flex-direction: row;
+    column-gap: 200px;
 }
 
 .header {
@@ -506,3 +550,54 @@ figcaption {
     /* right: 35%; */
     /* transform: translateY(-50%);
 } */
+
+
+
+
+/* Tutorial Setup */
+
+.tutorial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 15px;
+    font-size: 15pt;
+}
+
+.tutorial h2 {
+    margin-bottom: 15px;
+}
+
+.tut__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 15px;
+    font-size: 20px;
+}
+
+.tut__header p {
+    color: #505353;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.tut__descr {
+    flex: display;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1000;
+    row-gap: 10px;
+}
+
+.tut__links {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    margin-top: 10px;
+    column-gap: 30%;
+}
