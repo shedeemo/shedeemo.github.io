@@ -9,6 +9,7 @@ p {
 body, html{ 
     display: flex;
     align-items: center;
+    flex-direction: column;
     width: 100%;
 	/* width:100vw;  */
 	margin:0;
@@ -23,6 +24,13 @@ body, html{
     margin-top: 0;
     font-family: prompt;
     box-sizing: border-box;
+}
+
+.div__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .imageclass2 {
