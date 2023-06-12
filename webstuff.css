@@ -1,14 +1,10 @@
+/* general */
+
 p {
     font-family: prompt;
     margin-top: 0;
     margin-bottom: 0;
 }
-
-/* styling images */
-
-/* .thumbnail{
-    width: 300px;
-} */
 
 body, html{ 
 	width:100vw; 
@@ -17,6 +13,21 @@ body, html{
     position: relative;
     background-color: #e8f0f7;
 } 
+
+* {
+    margin: 0;
+    padding: 0;
+    margin-top: 0;
+    font-family: prompt;
+    box-sizing: border-box;
+}
+
+.imageclass2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 30%;
+}
 
 .subtitles {
     display: flex;
@@ -27,12 +38,7 @@ body, html{
     padding-bottom: 9%;
 }
 
-.imageclass2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 30%;
-}
+/* name, affiliation, etc. */
 
 .basicinfo2 {
     display: flex;
@@ -64,16 +70,6 @@ body, html{
     width: 500px;
 } */
 
-* {
-    /* display: flexbox;
-    flex: 1; */
-    margin: 0;
-    padding: 0;
-    margin-top: 0;
-    font-family: prompt;
-    box-sizing: border-box;
-}
-
 /* Embedding CV */
 
 .cv {
@@ -96,7 +92,7 @@ body, html{
     align-items: center;
     justify-content: space-between;
     min-height: 120px;
-    width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     flex-direction: row;
     column-gap: 200px;
@@ -147,42 +143,7 @@ body, html{
     margin-left: 20px;
 }
 
-
-/* div nav {
-    text-align: center;
-}
-
-nav {
-    padding-top: 2%;
-    width: 100%;
-    height: 70px;
-    background-color: #2980b9;
-    z-index: 1;
-    margin-bottom: 5%;
-}
-
-nav ul {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    justify-content: space-around;
-}
-
-ul li a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 1px 16px;
-    text-decoration-line: none;
-    font-size: 15px;
-    font-weight: bolder;
-}
-
-ul li a:hover {
-    text-decoration-line: underline;
-} */
+/* navbar sections - used in index.html */
 
 .section {
     font-size: 18px;
@@ -203,8 +164,8 @@ ul li a:hover {
     padding-bottom: 2%;
 }
 
+/* basic info stuff, used in index.html */
 .pagehead {
-    /* margin: auto; */
     max-width: 1200px;
     text-align: center;
     display: flex;
@@ -212,12 +173,9 @@ ul li a:hover {
     align-items: center;
     flex-direction: row;
     margin-left: 1%;
-    /* width: 100%; */
-    /* z-index: 1;
-    position: relative;
-    flex: 1; */
 }
 
+/* these are ones I can't find, not sure where I used them, revisit later */
 .topinfo {
     display: flex;
     align-items: center;
@@ -229,16 +187,6 @@ ul li a:hover {
     margin-right: auto;
     display: block;
     position: absolute;
-}
-
-/* .imageclass img {
-    display: block;
-    width: 30%;
-} */
-  
-.image {
-    width: 300px; 
-    margin: auto;
 }
 
 .name {
@@ -281,11 +229,6 @@ ul li a:hover {
     flex: 1;
 }
 
-.txt-cont {
-    display: flex;
-    align-items: center;
-}
-
 .image2 {
     width: 400px;
     margin-left: 20px;
@@ -297,9 +240,28 @@ ul li a:hover {
     margin-right: 2%;
 }
 
+/* end */
+
+/* used for images throughout website */
+.image {
+    width: 300px; 
+    margin: auto;
+}
+
+
+/* basic text box, used in index.html and projects.html */
+.txt-cont {
+    display: flex;
+    align-items: center;
+}
+
+/* Used to wrap text around image - a little hacky, let's try to change that */
+
 .bottom-text {
     margin-top: 20px;
 }
+
+/* social media info, used throughout especially in header.html and footer.html */
 
 .socials {
     display: flex;
@@ -322,6 +284,8 @@ ul li a:hover {
     width: 300px;
 }
 
+/* footer content */
+
 .footer {
     background-color: black;
     margin-bottom: 5%;
@@ -340,6 +304,8 @@ ul li a:hover {
     column-gap: 40px;
     margin: 0 auto;
 }
+
+/* header content */
 
 .header {
     background-color: black;
@@ -387,6 +353,7 @@ ul li a:hover {
     padding-right: 5%;
 }
 
+/* div for projects in project.html */
 .project {
     text-align: center;
 }
@@ -411,6 +378,7 @@ ul li a:hover {
     color: black;
 }
 
+/* not sure if I need this one since .imagecap does the job */
 figcaption {
     background-color: inherit;
     color: inherit;
@@ -427,6 +395,8 @@ figcaption {
     align-items: center;
     padding-bottom: 2px;
 }
+
+/* course info, used in index.html */
 
 .course {
     display: flex;
@@ -520,46 +490,6 @@ figcaption {
 .coursedescr div{
     margin-bottom: 10px;
 }
-
-/* .separatorx {
-    position: absolute;
-    top: 6%;
-    bottom: 1%;
-    width: 1px;
-    background-color: #2980b9;
-    left: 35%;
-    transform: translateX(-50%);
-} */
-/* 
-.separatory1 {
-    position: absolute;
-    top: 40%;
-    width: 60%; */
-    /* height: 1px; */
-    /* bottom: 15%; */
-    /* background-color: #2980b9;
-    left: 39%;
-    right: 75%; */
-    /* right: 35%; */
-    /* transform: translateY(-50%);
-} */
-
-/* .separatory2 {
-    position: absolute;
-    display: flex;
-    flex: 1;
-    bottom: 31%;
-    width: 60%; */
-    /* height: 1px; */
-    /* bottom: 15%; */
-    /* background-color: #2980b9; */
-    /* left: 39%;
-    right: 75%; */
-    /* right: 35%; */
-    /* transform: translateY(-50%);
-} */
-
-
 
 
 /* Tutorial Setup */
