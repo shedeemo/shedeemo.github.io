@@ -89,12 +89,12 @@
 
         <div id="footer-placeholder"></div>
         <script>
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-            const footerPlaceholder = document.getElementById('footer-placeholder');
-            footerPlaceholder.innerHTML = data;
-            });
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                const footerPlaceholder = document.getElementById('footer-placeholder');
+                footerPlaceholder.innerHTML = data;
+                });
         </script>
     </body>
     </html>
