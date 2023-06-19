@@ -1,0 +1,173 @@
+---
+title: 'Basic Data Exploration in R'
+author: "Mohamed Shedeed"
+output:
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(tidy.opts=list(width.cutoff=80), tidy=TRUE)
+library(dplyr)
+library(ggplot2)
+library(car)
+library(tidyverse)
+```
+
+## Data Exploration
+
+This tutorial provides some basic information for exploring data using R. I'll cover a bit about manipulating dataframes, getting summary statistics, and using the ```tidy``` environment. In another tutorial, I apply some of the principles presented here to make data visualizations using ```ggplot2```.
+
+We can get a glimpse of the data using the ```head``` and ```str``` functions. 
+
+```{r}
+dunc <- Duncan #I like to work with objects that start with lowercase letters
+head(dunc) #take a look at the first few observations 
+tail(dunc)
+```
+
+The ```head``` function returns the first six observations in the data and the ```tail``` function gives us the last six. Notice that we also see an unlabelled list of row names on the left. This type of data is somewhat uncommon, but does pop up once in a while. To get a more informative summary of the data, however, we can use the ```str``` function.
+
+```{r}
+str(dunc)
+```
+
+This is helpful in gaining a better understanding of what our data looks like (although it doesn't provide us with the row names). We can see that our dataframe is comprised of 45 observations and 4 variables. We can also see the names and classes of each variables, along with a small number of their observations. ```str``` also tells us the class of our object. Say we wanted to run ```str``` on only one variable:
+
+```{r}
+str(dunc$type)
+```
+
+We get back the information for that variable that we originally saw when running ```str``` on the whole dataframe. Now say we wanted to save that variable as a separate vector, then examine its structure. 
+
+```{r}
+d_type <- as.vector(dunc$type)
+str(d_type)
+```
+
+We now see that ```d_type``` is a character vector of length 45. 
+
+If we want to look only at certain aspects of our dataframe, we can use some of the functions below, like ```colnames```, which returns the column or variable names, or ```class```, which returns the class of the object.
+
+```{r}
+colnames(dunc) # get column/ variable names
+rownames(dunc)[1:5] #get rownames
+class(dunc) #class of the data
+```
+
+Notice that I included the function ```rownames```. Because this dataframe has a label for each observations, this function returns a vector of those names. If we use another dataframe that does not have that attribute, R returns a vector of observation indices.
+
+```{r}
+rownames(iris)[1:5]
+```
+
+Now say we wanted to apply a certain function over each element in our data. We can use the ```apply``` family of functions to do this. 
+
+```{r}
+lapply(dunc, class) 
+sapply(dunc, class) 
+```
+
+Notice that ```lapply``` and ```sapply``` provide us with the same information. So what's the difference? 
+
+```{r}
+class(lapply(dunc, class)) #you can also check the class of code output 
+class(sapply(dunc, class))
+```
+
+By using the ```class``` function on on output, we can see that ```lapply``` will always return a list. ```sapply```, on the other hand, will try to condense its output into a simpler object. In this case, it returns a vector because each element in its output has a length of 1. But what happens when we ask ```sapply``` to give us more complicated output? 
+
+```{r}
+sapply(dunc, str)
+class(sapply(dunc, str))
+```
+
+Because we're using the ```str``` function on each of these objects, R returns a list as its output. This is a pretty inefficient way of doing things, since we could just run ```str``` on the whole dataframe instead, but it's a helpful way to understand the differences between ```lapply``` and ```str```. 
+
+## Seeds
+
+Notice that I use the ```set.seed``` function. Setting your seed is absolutely necessary in ```R``` and any other programming language. Seeds are essentially the way that computer "randomly" generate numbers. This is why simulated data in ```R``` is pseudo-random. If you set a seed, generate a list of values from a distribution, and repeat both of those steps 100 times, you'll get the same output each time. If you set your seed and generate those values 100 times without re-setting your seed, you'll get 100 different outputs. But, if you did \textit{that} 100 times, you would get the same set of 100 randomly generated distributions. Let me show you what I mean, using a smaller sample size.
+
+I'll set my seed, generate three numbers from a Standard Normal distribution, then repeat both of those steps. 
+
+```{r}
+set.seed(123)
+rnorm(3, 0, 1)
+
+set.seed(123)
+rnorm(3, 0, 1)
+```
+
+If we do this, we get the exact same values both times. But if we do not re-set our seed:
+
+```{r}
+set.seed(123)
+rnorm(3, 0, 1)
+rnorm(3, 0, 1)
+```
+
+we get a different set of values. The decision to re-set your seed depends on what you're doing. If you want to generate a variety of samples (see the tutorial on sampling distributions), you won't need to re-set your seed. However, if you're performing $k$-fold cross-validation (see tutorial on regression) on two different models, you may want to re-set your seed to ensure that both models are being tested using the same data folds. 
+
+Setting your seed is essential to ensuring that your work is replicable, meaning that if you send your code with randomly generated data to someone else, they can run it and obtain the exact same results you did. 
+
+## Using tidyverse
+
+Now we can move on to using ```tidyverse```. I'll go step by step to show how ```tidyverse``` can streamline some things in R and make your life a whole lot easier. Loading ```tidyverse``` will install a few useful packages, such as ```dplyr```, which we'll use below, and ```ggplot2```, which I'll cover in a separate tutorial. 
+
+First, I'll go over the general syntax of dplyr. These functions generally take the dataframe as the first argument and the action as the second. For example, using the ```mutate``` function below allows us to create a new variable in ```dunc```. Let's create a new variable taken from a Bernoulli distribution using $p=0.5$. We can use ```names``` to confirm the new variable was created. We're going to be creating a new dataset here so that we keep one clean copy of the data. 
+
+```{r}
+set.seed(123)
+dunc2 <- mutate(dunc, extravar = rbinom(nrow(dunc), 1, 0.5))
+names(dunc2)
+```
+
+Now say we wanted to set a conditional probability on the value of our new variable. For those observations with an education score of $84$ or above, we want to regenerate the values of this variable using a probability of $0.75$, with a probability of $0.5$ otherwise. Then, we want to use the ```summarise``` function to find the empirical probability of ```extravar``` $=1$ given that ```education``` $>84$. 
+
+```{r}
+dunc2 <- mutate(dunc, extravar = rbinom(nrow(dunc), 1, p = ifelse(education > 84, 0.75, 0.5)))
+summarise(dunc2, newdist = mean(dunc2$extravar[dunc2$education > 84]))
+```
+
+That's a pretty inefficient way of doing things. We had to subset the data within the ```summarise``` function, and we needed to specify our dataframe in each line. Using the pipe operator %>% allows us to do this faster and make our code a little easier to read. Let's see how this works:
+
+```{r}
+set.seed(123)
+dunc2 <- dunc %>% 
+  mutate(extravar = rbinom(nrow(dunc), 1, p = ifelse(education > 84, 0.75, 0.5))) 
+
+dunc2 %>% 
+  filter(education > 84) %>% 
+  summarise(newdist = mean(extravar))
+```
+
+Using the %>% operator makes writing and reading code much easier, and reduces the risk of human error. In the next tutorial, I'll be going over how to visualize this data using ```ggplot2```. In another tutorial, I'll show you how to use ```dplyr``` to clean and analyze data. 
+
+```{r}
+dunc2 %>% 
+  ggplot() + 
+  geom_point(aes(x = income, y = prestige, color = as.factor(extravar)))
+```
+
+There's loads of other stuff you can use the tidy environment for, but we'll cover that in later lab sessions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

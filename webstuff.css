@@ -1,56 +1,66 @@
+/* general */
+
 p {
     font-family: prompt;
     margin-top: 0;
     margin-bottom: 0;
 }
 
-/* styling images */
-
-/* .thumbnail{
-    width: 300px;
-} */
-
 body, html{ 
-	width:100vw; 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+	/* width:100vw;  */
 	margin:0;
     height: 100vh; 
     position: relative;
+    background-color: #e8f0f7;
 } 
 
-.imageclass2 {
-    grid-column: 1 / 2;
+* {
+    margin: 0;
+    padding: 0;
+    margin-top: 0;
+    font-family: prompt;
+    box-sizing: border-box;
 }
+
+.div__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.imageclass2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 30%;
+}
+
+.subtitles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: cetner;
+    row-gap: 5px;
+    padding-bottom: 9%;
+}
+
+/* name, affiliation, etc. */
 
 .basicinfo2 {
-    grid-column: 2 / 3;
+    display: flex;
+    align-items: center;
     text-align: center;
     align-items: center;
-}
-
-/* .basicinfo2 h1 {
-    max-width: 100%;
-    margin: auto;
-    display: flex;
-    position: absolute;
-    top: 5%;
-    right: 19%;
-    margin-bottom: 20px;
-    padding-bottom: 20%;
-}
-
-.basicinfo2 p {
-    margin: auto;
     flex-direction: column;
-    padding-top: 2%;
-    position: absolute;
-    align-items: center;
-    top: 12%;
-    right: 17%;
-    line-height: 0.25;
-    color: #AAB7B8;
-    padding-bottom: 20%;
-    display: flex;
-} */
+    justify-content: center;
+    margin-left: 10%;
+}
+
 
 .basicinfo2 p {
     text-align: center;
@@ -71,74 +81,116 @@ body, html{
     width: 500px;
 } */
 
-* {
-    /* display: flexbox;
-    flex: 1; */
-    margin: 24px;
-    padding: 1px;
-    margin-top: 5px;
-    font-family: prompt;
-}
+/* Embedding CV */
 
-div nav {
-    text-align: center;
-}
-
-nav {
-    width: 100%;
-    height: 70px;
-    background-color: #2980b9;
-    z-index: 1;
-    border-radius: 20px;
-}
-
-nav ul {
+.cv {
     display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
 }
 
-/* ul li:last-child {
-    margin-right: 0;
-} */
+/* NAV BAR STUFF */
 
-ul li a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 1px 16px;
-    text-decoration-line: none;
-    font-size: 15px;
-    font-weight: bolder;
+.header {
+    background-color: black;
+    margin-bottom: 5%;
+    justify-content: center;
+    align-items: center;
 }
 
-ul li a:hover {
-    text-decoration-line: underline;
+.header__content {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    min-height: 120px;
+    max-width: 100%;
+    margin: 0 auto;
+    flex-direction: row;
+    column-gap: 200px;
 }
+
+.nav {
+    margin-right: 5%;
+}
+
+.nav__myname {
+    color: #e8f0f7;
+    font-size: 30px;
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 40px;
+}
+
+.nav__item {
+
+}
+
+.nav__link {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 22px;
+    transition: all 0.4s;
+}
+
+.nav__link:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.nav__logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo__img {
+    width: 100px;
+}
+
+.image2 {
+    width: 400px;
+    margin-left: 20px;
+}
+
+/* navbar sections - used in index.html */
 
 .section {
     font-size: 18px;
     display: flex;
+    row-gap: 4px;
     text-align: center;
     flex-direction: column;
     z-index: 1;
     position: relative;
+    padding: 5%;
 }
 
+.section h1 {
+    
+}
+
+.section h3 {
+    padding-bottom: 2%;
+}
+
+/* basic info stuff, used in index.html */
 .pagehead {
-    margin: auto;
-    width: 100%;
+    max-width: 1200px;
     text-align: center;
-    display: grid;
-    /* align-items: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 1%;
+}
+
+/* these are ones I can't find, not sure where I used them, revisit later */
+.topinfo {
+    display: flex;
+    align-items: center;
     flex-direction: column;
-    /* width: 100%; */
-    z-index: 1;
-    position: relative;
-    flex: 1;
 }
 
 .imageclass {
@@ -146,16 +198,6 @@ ul li a:hover {
     margin-right: auto;
     display: block;
     position: absolute;
-}
-
-/* .imageclass img {
-    display: block;
-    width: 30%;
-} */
-  
-.image {
-    width: 300px; 
-    margin: auto;
 }
 
 .name {
@@ -198,35 +240,50 @@ ul li a:hover {
     flex: 1;
 }
 
-.txt-cont {
-    display: flex;
-    align-items: center;
-}
-
 .image2 {
     width: 400px;
     margin-left: 20px;
 }
 
+.image3 {
+    width: 500px;
+    border-radius: 2%;
+    margin-right: 2%;
+}
+
+/* end */
+
+/* used for images throughout website */
+.image {
+    width: 300px; 
+    margin: auto;
+}
+
+
+/* basic text box, used in index.html and projects.html */
+.txt-cont {
+    display: flex;
+    align-items: center;
+}
+
+/* Used to wrap text around image - a little hacky, let's try to change that */
+
 .bottom-text {
     margin-top: 20px;
 }
 
+/* social media info, used throughout especially in header.html and footer.html */
+
 .socials {
+    display: flex;
     align-items: center;
-    margin-top: -4%;
-    padding-top: -15%;
-    position: relative;
-    display: block;
-    gap: 10px;
-    padding-left: 50%;
+    justify-content: center;
     /* right: -40%; */
-    z-index: 2;
+    column-gap: 40px;
 }
 
 .socials a {
-    display: inline-block;
-    padding: 10px;
+    display: flex;
     border-radius: 50%;
 }
 
@@ -238,26 +295,126 @@ ul li a:hover {
     width: 300px;
 }
 
+/* footer content */
+
 .footer {
-    background-color: #2980b9;
-    padding: 10px;
+    background-color: black;
+    margin-bottom: 5%;
+    justify-content: center;
+    align-items: center;
+    min-height: 120px;
+}
+
+.footer__content {
+    display: flex;
+    background-color:black;
+    min-height: 120px;
+    max-width: 1200px;
+    align-items: center;
+    justify-content: center;
+    column-gap: 40px;
+    margin: 0 auto;
+}
+
+/* header content */
+
+.header {
+    background-color: black;
+    margin-bottom: 5%;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__content {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    min-height: 120px;
+    width: 1200px;
+    margin: 0 auto;
+    flex-direction: row;
+    column-gap: 200px;
+}
+
+.header {
+    background-color: black;
+    margin-bottom: 5%;
+}
+
+.header__content {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contact-info {
     text-align: left;
     color: azure;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    font-size: 30px;
 }
 
+.contact-info p {
+    padding-right: 5%;
+}
+
+/* div for projects in project.html */
 .project {
     text-align: center;
 }
+
+.projlink:hover {
+    color: rgb(6, 5, 5, 0.5);
+    text-decoration: underline;
+}
+
+.projlink {
+    color: black;
+    text-decoration: none;
+}
+
+.projname {
+    text-align: center;
+    color: rgb(8, 0, 0);
+}
+
+.projname h2 {
+    padding-bottom: 2%;
+    color: black;
+}
+
+/* not sure if I need this one since .imagecap does the job */
+figcaption {
+    background-color: inherit;
+    color: inherit;
+    display: flex;
+    font-style: italic;
+    padding: 2px;
+    text-align: center;
+  }
+
+.imagecap {
+    display: flex;
+    flex-direction: column;
+    padding-right: 5px;
+    align-items: center;
+    padding-bottom: 2px;
+}
+
+/* course info, used in index.html */
 
 .course {
     display: flex;
     position: relative;
     padding: 20px;
     /* flex: 1; */
-    background-color: rgb(241, 241, 228);
+    background-color: rgb(224, 233, 236);
 }
 
 .course::after {
@@ -280,7 +437,9 @@ ul li a:hover {
     text-align: left;
     font-weight: bold;
     display: inline-block;
-    width: 50%;
+    width: 95%;
+    margin-bottom: 3%;
+    padding: 50px;
 }
 
 .coursename::before {
@@ -310,13 +469,14 @@ ul li a:hover {
     margin-left: 10%;
 }
 
+
 .coursesem {
     margin-top: -3%;
     text-align: left;
     font-weight: lighter;
     color: rgb(146, 143, 143);
     display: inline-block;
-    margin-left: 8%;
+    margin-left: 15%;
     margin-bottom: 3%;
 }
 
@@ -324,14 +484,14 @@ ul li a:hover {
     display: flex;
     flex-direction: column;
     flex: 1;
-    text-align: left;
+    text-align: center;
     align-items: center;
     justify-content: center;
     /* margin-bottom: 100px; */
 }
 
 .coursedescr p {
-    text-align: left;
+    text-align: center;
 }
 
 .coursedescr p {
@@ -342,40 +502,52 @@ ul li a:hover {
     margin-bottom: 10px;
 }
 
-.separatorx {
-    position: absolute;
-    top: 6%;
-    bottom: 1%;
-    width: 1px;
-    background-color: #2980b9;
-    left: 35%;
-    transform: translateX(-50%);
-}
 
-.separatory1 {
-    position: absolute;
-    top: 40%;
-    width: 60%;
-    /* height: 1px; */
-    /* bottom: 15%; */
-    background-color: #2980b9;
-    left: 39%;
-    right: 75%;
-    /* right: 35%; */
-    transform: translateY(-50%);
-}
+/* Tutorial Setup */
 
-.separatory2 {
-    position: absolute;
+.tutorial {
     display: flex;
-    flex: 1;
-    bottom: 31%;
-    width: 60%;
-    /* height: 1px; */
-    /* bottom: 15%; */
-    background-color: #2980b9;
-    left: 39%;
-    right: 75%;
-    /* right: 35%; */
-    transform: translateY(-50%);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 15px;
+    font-size: 15pt;
+}
+
+.tutorial h2 {
+    margin-bottom: 15px;
+}
+
+.tut__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 15px;
+    font-size: 20px;
+}
+
+.tut__header p {
+    color: #505353;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.tut__descr {
+    flex: display;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1000;
+    row-gap: 10px;
+}
+
+.tut__links {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    margin-top: 10px;
+    column-gap: 30%;
+    text-decoration: none;
 }

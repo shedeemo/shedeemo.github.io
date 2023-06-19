@@ -1,0 +1,235 @@
+---
+title: 'Graphics in R Using GGplot'
+author: "Mohamed Shedeed"
+date: "2023-02-21"
+output:
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(tidy.opts=list(width.cutoff=80), tidy=TRUE)
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+```
+
+## Grammar of Graphics
+
+The ```gg``` in ```ggplot2``` stands for "grammar of graphics", which is a way to format visualizations in R and other languages. ```ggplot2``` uses a layered grammar, which means each layer is added to the last to create the final plot. Let's use the ```iris``` dataset and use ```ggplot2``` to make some simple plots. I'll build these plots step-by-step.
+
+```{r}
+ggplot(data = iris, aes(Sepal.Length, y = Petal.Length)) +
+  geom_point()
+```
+
+We call the ```ggplot``` function first and enter in our data as well as aesthetics to assign variables to our axes using ```aes```. The second line, ```geom_point``` adds an additional layer and tells R what type of plot we want. Since we're plotting two continuous variables, we can use ```geom_point``` to produce a scatter plot. We can use other types of layers to make various plots, such as the histogram below:
+
+```{r}
+ggplot(data = iris, aes(x = Sepal.Length)) +
+  geom_histogram()
+```
+
+Notice that I only included one variable in the ```aes``` argument, since we're only plotting ```Sepal.Length``` here. 
+
+## Using ```ggplot``` with ```tidyverse```
+
+```ggplot2``` can be used in conjunction with ```tidyverse``` to streamline visualizations. For example, rather than using the ```data``` argument, you can simply pipe the data into ```ggplot```
+
+```{r}
+iris |> 
+  ggplot(aes(Sepal.Length)) +
+  geom_histogram()
+```
+
+You can also filter the data to vizualize only a specific range of values:
+
+```{r}
+iris |> 
+  filter(Sepal.Length < 6.5) |> 
+    ggplot(aes(Sepal.Length)) +
+    geom_histogram()
+```
+
+## Adding Layers
+
+Now that we've covered the basics, we can move on to making presentable visualizations by adding layers to our plots. Let's say we wanted to reproduce the first figure we made, but we want to distinguish between species of plants. To save space, I'll save the initial figure as ```p```, add simply add layers to it as we go along.
+
+```{r}
+p <- iris |> 
+  ggplot(aes(Sepal.Length, Petal.Length))
+p +
+  geom_point(aes(color = Species))
+```
+
+This is called "mapping", and can be achieved by using the ```color``` argument inside ```aes```. Let's see what happens when we use ```color``` outside of the aesthetics value. 
+
+```{r}
+p + 
+  geom_point(color = "tan")
+```
+
+This is called "setting". The difference between setting and mapping is simple. When we are mapping, we include arguments inside of ```aes()```, we are asking the plot to reflect attributes of our data. This is why using it in the previous code chunk produced a plot displaying our data by species. Setting refers to attributes of the plot itself, such as the color of the points. Let's use both mapping and setting to style our plot. 
+
+```{r}
+p + 
+  geom_point(aes(colour = Species), shape = 18, size = 3)
+```
+
+We can use ```shape``` and ```size``` to customize our points.
+
+## Adding Titles, Lables, etc.
+
+Now that we've covered the basics, we can further style our plot by making it more reader-friendly using ```labs``` to add a title, label our axes, and cite the dataset.
+
+```{r}
+p <- p + 
+  geom_point(aes(colour = Species), shape = 18, size = 3)
+
+p + 
+  labs(title = "Sepal Length and Petal Lengths by Species",
+       x = "Sepal Length",
+       y = "Petal Length",
+       caption = "Source: Iris")
+```
+
+This is useful, but we also want to edit the levels on our legend, which we can do with ```scale_x_discrete```
+
+```{r}
+p <- p + 
+  labs(title = "Sepal Length and Petal Lengths by Species",
+       x = "Sepal Length",
+       y = "Petal Length",
+       caption = "Source: Iris")
+
+p <- p +
+  scale_color_discrete(labels = c("Setosa", "Versicolor", "Virginica"))
+
+p
+```
+
+We can also change our theme:
+
+```{r}
+p + theme_bw()
+p + theme_classic()
+p + theme_light()
+```
+
+Or we can change the size of our title:
+
+```{r}
+p + 
+  theme(plot.title = element_text(size = 15))
+```
+
+Or the x-axis label:
+
+```{r}
+p + theme(axis.title.x = element_text(size = 20))
+```
+
+Or the y-axis label:
+
+```{r}
+p + theme(axis.title.y = element_text(size = 20))
+```
+
+Or both:
+
+```{r}
+p + theme(axis.title = element_text(size = 20))
+```
+
+Or the legend title:
+
+```{r}
+p + theme(legend.title = element_text(size = 20))
+```
+
+Or even the legend items:
+
+```{r}
+p + theme(legend.text = element_text(size = 20))
+```
+
+We can also use similar code to change the color of our labels:
+
+```{r}
+p + theme(plot.title = element_text(colour = "red"))
+```
+
+As well as the font family:
+
+```{r}
+p + theme(plot.title = element_text(family = "poppins"))
+```
+
+## Overlaying plots
+
+Another thing we can do with ```ggplot2``` is overlay figures. This is helpful when we want to show certain aspects of our data, such as data distributions. Violin plots are often useful in doing this:
+
+```{r}
+iris |> 
+  ggplot(aes(Species, Petal.Length)) +
+  geom_violin() 
+```
+
+But so are boxplots:
+
+```{r}
+iris |> 
+  ggplot(aes(Species, Petal.Length)) +
+  geom_boxplot() 
+```
+
+We can combine the two to make our visualization more informative. 
+
+```{r}
+iris |> 
+  ggplot(aes(Species, Petal.Length)) +
+  geom_violin() +
+  geom_boxplot()
+```
+
+But this is a little clunky. Let's tidy up.
+
+```{r}
+p <- iris |> 
+  ggplot(aes(Species, Petal.Length))
+
+p + 
+  geom_violin(alpha = 0.5) +
+  geom_boxplot(width = 0.1)
+```
+
+Using the ```alpha``` argumnet, we can change the transparency of the violin plots and using the ```width``` argument change the size of the boxplots so that they fit inside the violins. 
+
+One thing to note here is the order of your layers. Let's take a look at how this plot would look if we changed the order of layers.
+
+```{r}
+p + 
+  geom_boxplot(width = 0.1) +
+  geom_violin(alpha = 0.5)
+```
+
+Because we changed the transparency of our violins, we can see that our boxplots our now underneath the violins because we added them before we added the additional layer. This is important to remember whenever you make complex visualizations with multiple presentations of your data on the same plot. 
+
+Now we can also change the plot to look more visually appealing.
+
+```{r}
+iris |> 
+  ggplot(aes(Species, Petal.Length)) + 
+  geom_violin(aes(color = Species),alpha = 0.5) +
+  geom_boxplot(width = 0.1) +
+  labs(title = "Distribution of Petal Lengths by Species",
+       x = "",
+       y = "Petal Length") +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank()) +
+  scale_color_discrete(labels = c("Setosa", "Versicolor", "Virginica"))
+```
+
+We can play around with the ```ggplot``` rules to remove the x-axis labels and place the appropraite values into a legend on the right. 
+
+In another tutorial, I'll go over some of the more advanced uses of ```ggplot2```, including how to produce presentable coefficient plots from your regression results. 
+

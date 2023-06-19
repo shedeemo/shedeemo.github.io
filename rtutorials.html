@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Prompt:wght@400;600&display=swap" rel="stylesheet">
         <script src = 'design.js'></script>
         <meta charset="UTF-8">
-	    <title>CV - Mohamed Shedeed</title>
+	    <title>Home - Mohamed Shedeed</title>
 	    <meta name="Welcome to my website!" content="width=device-width, initial-scale=1">
         <meta http-equiv="mohamed shedeed" content="mohamed shedeed, phd, ohio state">
         <meta name="keywords" content="research, cv, data science, academic">
@@ -29,17 +29,19 @@
     <body>
         <div id="header-placeholder"></div>
         <script>
-        fetch('header.html')
+          fetch('header.html')
             .then(response => response.text())
             .then(data => {
-            const headerPlaceholder = document.getElementById('header-placeholder');
-            headerPlaceholder.innerHTML = data;
+              const headerPlaceholder = document.getElementById('header-placeholder');
+              headerPlaceholder.innerHTML = data;
             });
         </script>
 
-        <div class="cv">
-            <object data="MS_CV_6_23.pdf" width="1000" height="1000" type='application/pdf'></object>
+        <div class="imagecap">
+            <img src="comingsoon.jpeg" alt="" class="image3">
         </div>
+       
+
 
         <div id="footer-placeholder"></div>
         <script>
@@ -51,4 +53,5 @@
             });
         </script>
     </body>
+    </html>
 </html>
