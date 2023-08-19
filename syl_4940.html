@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <!-- every part of the webpage is contained in head or body below -->
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+        <script src = 'design.js'></script>
+        <meta charset="UTF-8">
+	    <title>CV - Mohamed Shedeed</title>
+	    <meta name="Welcome to my website!" content="width=device-width, initial-scale=1">
+        <meta http-equiv="mohamed shedeed" content="mohamed shedeed, phd, ohio state">
+        <meta name="keywords" content="research, cv, data science, academic">
+        <!-- this is everything not visible in the webpage -->
+        <title>POLISC 4940 Syllabus</title>
+        <link rel = 'stylesheet' href = 'webstuff.css'> 
+        <style>
+            /* .thumbnail{
+                width: 300px;
+            }
+            .intro {
+                width: 500px;
+            } */
+        </style>
+    </head> 
+
+    <body>
+        <div id="header-placeholder"></div>
+        <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+            const headerPlaceholder = document.getElementById('header-placeholder');
+            headerPlaceholder.innerHTML = data;
+            });
+        </script>
+
+        <div class="cv">
+            <object data="syallbus_au_2023.pdf" width="1000" height="1000" type='application/pdf'></object>
+        </div>
+
+        <div id="footer-placeholder"></div>
+        <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+            const footerPlaceholder = document.getElementById('footer-placeholder');
+            footerPlaceholder.innerHTML = data;
+            });
+        </script>
+    </body>
+</html>

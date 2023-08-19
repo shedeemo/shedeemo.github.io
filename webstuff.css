@@ -87,6 +87,7 @@ body, html{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-bottom: 3%;
 }
 
 /* NAV BAR STUFF */
