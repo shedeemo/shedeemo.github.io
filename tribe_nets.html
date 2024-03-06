@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <!-- every part of the webpage is contained in head or body below -->
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+        <script src = 'design.js'></script>
+        <meta charset="UTF-8">
+	    <title>Exploring Tribal Networks</title>
+	    <meta name="Welcome to my website!" content="width=device-width, initial-scale=1">
+        <meta http-equiv="mohamed shedeed" content="mohamed shedeed, phd, ohio state">
+        <meta name="keywords" content="research, cv, data science, academic">
+        <!-- this is everything not visible in the webpage -->
+        <title>Mohamed Shedeed</title>
+        <link rel = 'stylesheet' href = 'webstuff.css'> 
+        <style>
+            /* .thumbnail{
+                width: 300px;
+            }
+            .intro {
+                width: 500px;
+            } */
+        </style>
+    </head> 
+
+
+    <body>
+        
+        <p>Below is a glimpse of my research on Jordanian tribal identity. Using data from a Rabettah, an Arabic-language social media wesbite, I was able to map connections between various families, tribes, and tribe branches in Jordan using the visNetwork package in R. You can explore these connections by selecting specific families or by selecting all families within a specific governorate. <em>Note: The full visualization might take a second to load.</em> </p>
+
+        <p>Using this graphic, you can explore connections between tribes either by zooming in on the network to examine a particular cluster, hovering over a node to find its closest links, selecting a particular family from the dropdown list, or selecting only the nodes within a particular governorate. Note that this data was obtained in December 2022, and therefore is limited in scope to the families that were active on Rabettah during that time period, rather than offering a complete picture of tribal linkages through the country.</p>
+        <iframe src="tribe_networks.html" width="100%" height="700px" frameborder="20px" style="margin-bottom: 40px; margin-top: 40px;"></iframe>
+        <div id="footer-placeholder"></div>
+        <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+            const footerPlaceholder = document.getElementById('footer-placeholder');
+            footerPlaceholder.innerHTML = data;
+            });
+        </script>
+    </body>
