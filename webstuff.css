@@ -169,6 +169,10 @@ body, html{
     max-width: 1150px;
 }
 
+.section p{
+    margin-bottom: 3%;
+}
+
 .section h1 {
     
 }
