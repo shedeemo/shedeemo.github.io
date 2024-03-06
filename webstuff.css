@@ -127,7 +127,7 @@ body, html{
 }
 
 .nav__item {
-
+    text-align: center;
 }
 
 .nav__link {
@@ -269,6 +269,11 @@ body, html{
     align-items: center;
 }
 
+.net-vis{
+    display: flex;
+    align-items: center;
+}
+
 /* Used to wrap text around image - a little hacky, let's try to change that */
 
 .bottom-text {
@@ -281,7 +286,6 @@ body, html{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* right: -40%; */
     column-gap: 40px;
 }
 
@@ -305,19 +309,23 @@ body, html{
     margin-bottom: 5%;
     justify-content: center;
     align-items: center;
-    min-height: 120px;
+    max-height: 120px;
     padding: 3%;
+    max-width: 1200px;
 }
 
 .footer__content {
     display: flex;
     background-color:black;
-    min-height: 120px;
+    max-height: 100px;
     max-width: 1200px;
     align-items: center;
     justify-content: center;
     column-gap: 40px;
-    margin: 0 auto;
+    margin-top: -1%;
+    margin-left: 400px;
+    margin-right: 400px;
+    /* min-width: 1200px; */
 }
 
 /* header content */
@@ -334,7 +342,7 @@ body, html{
     align-items: center;
     justify-content: space-between;
     min-height: 120px;
-    width: 1200px;
+    width: 1400px;
     margin: 0 auto;
     flex-direction: row;
     column-gap: 200px;
@@ -350,7 +358,7 @@ body, html{
     align-items: center;
     justify-content: center;
     min-height: 120px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -361,11 +369,15 @@ body, html{
     align-items: center;
     justify-content: center;
     max-width: 1200px;
-    font-size: 30px;
+    margin-left: 45px;
+    margin-right: 50px;
+    column-gap: 200px;
 }
 
 .contact-info p {
     padding-right: 5%;
+    font-size: 25px;
+    text-align: center;
 }
 
 /* div for projects in project.html */
