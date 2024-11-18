@@ -174,7 +174,8 @@ body, html{
     z-index: 1;
     position: relative;
     padding: 5%;
-    max-width: 1150px;
+    max-width: 1300px;
+    margin-left: 5%;
 }
 
 .section p{
